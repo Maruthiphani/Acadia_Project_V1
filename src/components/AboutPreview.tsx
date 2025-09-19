@@ -55,17 +55,9 @@ const AboutPreview: React.FC = () => {
               <p className="text-lg text-brand-slate leading-relaxed">
                 Today, we serve Fortune 500 companies, government agencies, and growing businesses, always maintaining our core commitment to delivering solutions that truly work for the people who use them.
               </p>
-              
-                <div className="mt-6">
-                  <Link
-                    to="/about"
-                    className="inline-flex items-center gap-3 bg-gradient-brand text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-                  >
-                    Learn about us
-                    <ArrowRight size={20} />
-                  </Link>
-                </div>
-              
+
+
+
             </div>
             <div className="bg-gradient-brand rounded-3xl p-8 text-white">
               <div className="grid grid-cols-2 gap-8 text-center">
@@ -113,9 +105,21 @@ const AboutPreview: React.FC = () => {
               defaultActive="ceo"
               variant="tabs"
             />
-          </div>  
+          </div>
+        </div>
+
+        {/* Centered Button at Bottom */}
+        <div className="mt-12 text-center">
+          <Link
+            to="/about"
+            className="inline-flex items-center gap-3 bg-gradient-brand text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          >
+            Learn about us
+            <ArrowRight size={20} />
+          </Link>
         </div>
       </section>
+
 
     </>
   );
