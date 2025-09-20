@@ -6,27 +6,27 @@ import { ArrowRight } from 'lucide-react';
 const Resources: React.FC = () => {
   const resources = [
     {
-      type: 'Blog',
+      type: 'Technology',
       icon: FileText,
-      title: 'The Future of Enterprise Communications',
-      excerpt: 'Exploring trends and innovations shaping the next generation of business communications.',
-      date: 'March 15, 2024',
+      title: 'The Future of Communication Technologies',
+      excerpt: 'Discover how next-gen innovations like AI, 5G, and cloud are reshaping global communication systems.',
+      date: 'March 15, 2025',
       readTime: '5 min read'
     },
     {
-      type: 'Case Study',
+      type: 'Enterprise',
       icon: Calendar,
-      title: 'Global Manufacturing Company Migration',
-      excerpt: 'How we helped a Fortune 500 manufacturer migrate 10,000+ users to the cloud.',
-      date: 'March 10, 2024',
+      title: 'Empowering Enterprises with Smart Infrastructure',
+      excerpt: 'Learn how modern enterprises are leveraging automation, analytics, and hybrid platforms to scale securely and efficiently.',
+      date: 'March 10, 2025',
       readTime: '8 min read'
     },
     {
-      type: 'Whitepaper',
+      type: 'Solutions',
       icon: Download,
-      title: 'Contact Center Optimization Guide',
-      excerpt: 'Complete guide to modernizing and optimizing your contact center operations.',
-      date: 'March 5, 2024',
+      title: 'Transforming Challenges into Scalable Solutions',
+      excerpt: 'Explore real-world strategies that turn complex communication challenges into streamlined, future-ready solutions.',
+      date: 'March 5, 2025',
       readTime: '12 min read'
     }
   ];
@@ -82,7 +82,7 @@ const Resources: React.FC = () => {
             to="/resources"
             className="inline-flex items-center gap-3 bg-gradient-brand text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
           >
-            View All Resources
+            View All Resources 
             <ArrowRight size={20} />
           </Link>
         </div>

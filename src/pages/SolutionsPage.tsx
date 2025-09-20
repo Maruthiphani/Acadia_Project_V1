@@ -91,7 +91,7 @@ const SolutionsPage: React.FC = () => {
       <section className="py-20 bg-gradient-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold font-heading text-white mb-6">
-            Tailored Solutions for
+            Our Solutions for
             <span className="block text-brand-light">Every Challenge</span>
           </h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto">

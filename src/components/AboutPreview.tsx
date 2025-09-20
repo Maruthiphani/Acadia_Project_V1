@@ -114,7 +114,7 @@ const AboutPreview: React.FC = () => {
             to="/about"
             className="inline-flex items-center gap-3 bg-gradient-brand text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
           >
-            Learn about us
+            Learn more about us
             <ArrowRight size={20} />
           </Link>
         </div>

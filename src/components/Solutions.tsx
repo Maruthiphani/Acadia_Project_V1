@@ -28,7 +28,7 @@ const Solutions: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-brand-navy mb-6">
-            Tailored Solutions for Every Challenge
+            Our Solutions for Every Challenge
           </h2>
           <p className="text-lg text-brand-slate max-w-3xl mx-auto">
             Discover how our specialized solutions can address your unique communication challenges and drive business growth

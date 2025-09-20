@@ -49,9 +49,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Hero />
-      <section id="about">
-        <AboutPreview />
-      </section>
+     
 
       {/* Leadership Section */}
       {/* <section className="py-20 bg-white">
@@ -146,7 +144,7 @@ const Home: React.FC = () => {
       <section id="solutions" className="py-20 bg-brand-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            title="Tailored Solutions"
+            title="Our Solutions"
             subtitle="Discover how our specialized solutions can address your unique communication challenges"
             accentColor="teal"
           />
@@ -208,9 +206,22 @@ const Home: React.FC = () => {
       <section id="resources">
         <Resources />
       </section>
-      <section id="contact">
-        <ContactSection />
+      <section id="about">
+        <AboutPreview />
       </section>
+      {/* <section id="contact">
+        <ContactSection />
+      </section> */}
+      <div className="text-center">
+        <Link
+          to="/contact"
+          className="inline-flex items-center gap-3 bg-gradient-brand text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+        >
+          Contact us
+          <ArrowRight size={20} />
+        </Link>
+      </div>
+      <br/>
     </>
   );
 };

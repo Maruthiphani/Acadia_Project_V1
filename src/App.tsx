@@ -18,34 +18,10 @@ function AppContent() {
   const [currentPage, setCurrentPage] = useState('home');
   const location = useLocation();
   const navigate = useNavigate();
-  const activeSection = useScrollSpy(['about', 'services', 'solutions', 'partners', 'resources', 'contact'], 100);
+  const activeSection = useScrollSpy(['services', 'solutions', 'partners', 'resources', 'about', 'contact'], 100);
 
 
-  // Update current page based on route and scroll spy
-  // useEffect(() => {
-  //   const path = location.pathname;
-  //   if (path === '/') {
-  //     if (activeSection === 'services') {
-  //       setCurrentPage('services');
-  //     } else if (activeSection === 'solutions') {
-  //       setCurrentPage('solutions');
-  //     } else {
-  //       setCurrentPage('home');
-  //     }
-  //   } else if (path.startsWith('/services')) {
-  //     setCurrentPage('services');
-  //   } else if (path.startsWith('/solutions')) {
-  //     setCurrentPage('solutions');
-  //   } else if (path === '/about') {
-  //     setCurrentPage('about');
-  //   } else if (path === '/partners') {
-  //     setCurrentPage('partners');
-  //   } else if (path === '/resources') {
-  //     setCurrentPage('resources');
-  //   } else if (path === '/contact') {
-  //     setCurrentPage('contact');
-  //   }
-  // }, [location.pathname, activeSection]);
+
 
   useEffect(() => {
     const path = location.pathname;
@@ -81,45 +57,12 @@ function AppContent() {
   }, [location.pathname, activeSection]);
 
 
-
-  // const handleNavClick = (pageId: string) => {
-  //   if (pageId === 'home') {
-  //     navigate('/');
-  //     window.scrollTo({ top: 0, behavior: 'smooth' });
-  //   } else if (pageId === 'services') {
-  //     if (location.pathname === '/') {
-  //       // Scroll to services section on home page
-  //       const element = document.getElementById('services');
-  //       if (element) {
-  //         element.scrollIntoView({ behavior: 'smooth' });
-  //       }
-  //     } else {
-  //       navigate('/services');
-  //     }
-  //   } 
-  //  else if (pageId === 'solutions') {
-  //     if (location.pathname === '/') {
-  //       // Scroll to solutions section on home page
-  //       const element = document.getElementById('solutions');
-  //       if (element) {
-  //         element.scrollIntoView({ behavior: 'smooth' });
-  //       }
-  //     } else {
-  //       navigate('/solutions');
-  //     }
-  //   } else {
-  //     navigate(`/${pageId}`);
-  //   }
-
-  // };
-
   const handleNavClick = (pageId: string) => {
     if (pageId === 'home') {
       navigate('/');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (pageId === 'about') {
       if (location.pathname === '/') {
-        // Scroll to about section on home page
         const element = document.getElementById('about');
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
@@ -129,7 +72,6 @@ function AppContent() {
       }
     } else if (pageId === 'services') {
       if (location.pathname === '/') {
-        // Scroll to services section on home page
         const element = document.getElementById('services');
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
@@ -139,7 +81,6 @@ function AppContent() {
       }
     } else if (pageId === 'solutions') {
       if (location.pathname === '/') {
-        // Scroll to solutions section on home page
         const element = document.getElementById('solutions');
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
@@ -149,7 +90,6 @@ function AppContent() {
       }
     } else if (pageId === 'partners') {
       if (location.pathname === '/') {
-        // Scroll to partners section on home page
         const element = document.getElementById('partners');
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
@@ -159,7 +99,6 @@ function AppContent() {
       }
     } else if (pageId === 'resources') {
       if (location.pathname === '/') {
-        // Scroll to resources section on home page
         const element = document.getElementById('resources');
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
@@ -168,15 +107,8 @@ function AppContent() {
         navigate('/resources');
       }
     } else if (pageId === 'contact') {
-      if (location.pathname === '/') {
-        // Scroll to contact section on home page
-        const element = document.getElementById('contact');
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      } else {
-        navigate('/contact');
-      }
+      // 🚨 Always open contact page directly
+      navigate('/contact');
     } else {
       navigate(`/${pageId}`);
     }
