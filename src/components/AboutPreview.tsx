@@ -181,7 +181,7 @@ const AboutPreview: React.FC = () => {
             At Acadia Consultants, we specialize in Voice, VoIP, and Unified Communications & Collaboration (UCC) transformation, helping enterprises modernize, optimize, and future-proof their communication ecosystems.
           </p>
         </div>
-      </section>
+      </section> 
 
       {/* Who We Are */}
       <section className="py-20 bg-white">
@@ -196,7 +196,7 @@ const AboutPreview: React.FC = () => {
           </div>
           <div>
             <img
-              src="https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=800&q=80"
+              src="/About.jpeg"
               alt="Who We Are"
               className="rounded-2xl shadow-lg object-cover w-full h-72"
             />

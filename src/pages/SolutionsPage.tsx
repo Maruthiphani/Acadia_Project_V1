@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';   /FullLogo_Acadia_1.jpg
 import { Building2, Factory, GraduationCap, Shield } from 'lucide-react';
 
 const SolutionsPage: React.FC = () => {
@@ -27,7 +27,7 @@ const SolutionsPage: React.FC = () => {
       icon: Factory,
       title: 'Digital Transformation Platform',
       description: 'Complete digital overhaul of communication systems with seamless integration across all business platforms and processes.',
-      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/FullLogo_Acadia_1.jpg',
       features: [
         'Legacy system modernization',
         'Cloud-first architecture design',

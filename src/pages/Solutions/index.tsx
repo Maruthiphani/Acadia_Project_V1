@@ -37,64 +37,66 @@ const SolutionsIndex: React.FC = () => {
             {solutions.map((solution, index) => (
               <div
                 key={solution.slug}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? 'lg:grid-flow-dense' : ''
-                }`}
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''
+                  }`}
               >
                 {/* Image */}
                 <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                  <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                  {/* <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                     <img
                       src={`https://images.pexels.com/photos/${3184338 + (index % 3)}/pexels-photo-${3184338 + (index % 3)}.jpeg?auto=compress&cs=tinysrgb&w=800`}
                       alt={solution.title}
                       className="w-full h-80 object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-brand/20" />
+                  </div> */}
+                  <div>
+                    <img
+                      src={solution.image}   // <-- reference the image field you define
+                      alt={`${solution.title} capabilities`}
+                      className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                    />
                   </div>
                 </div>
-                
+
                 {/* Content */}
                 <div className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
                   <div className="bg-white rounded-3xl p-8 shadow-lg">
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${
-                      solution.heroAccent === 'violet' ? 'bg-accent-violet/10' :
-                      solution.heroAccent === 'teal' ? 'bg-accent-teal/10' :
-                      'bg-accent-amber/10'
-                    }`}>
-                      <div className={`w-8 h-8 ${
-                        solution.heroAccent === 'violet' ? 'text-accent-violet' :
-                        solution.heroAccent === 'teal' ? 'text-accent-teal' :
-                        'text-accent-amber'
+                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${solution.heroAccent === 'violet' ? 'bg-accent-violet/10' :
+                        solution.heroAccent === 'teal' ? 'bg-accent-teal/10' :
+                          'bg-accent-amber/10'
                       }`}>
+                      <div className={`w-8 h-8 ${solution.heroAccent === 'violet' ? 'text-accent-violet' :
+                          solution.heroAccent === 'teal' ? 'text-accent-teal' :
+                            'text-accent-amber'
+                        }`}>
                         <div className="w-full h-full bg-current opacity-60 rounded" />
                       </div>
                     </div>
-                    
+
                     <h3 className="text-2xl font-bold font-heading text-brand-navy mb-4">
                       {solution.title}
                     </h3>
-                    
+
                     <p className="text-gray-600 leading-relaxed mb-6">
                       {solution.summary}
                     </p>
-                    
+
                     {solution.capabilitiesText && (
                       <p className="text-gray-600 leading-relaxed mb-8">
                         {solution.capabilitiesText}
                       </p>
                     )}
-                    
+
                     <Link
                       to={`/solutions/${solution.slug}`}
-                      className={`group inline-flex items-center gap-3 px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:-translate-y-1 ${
-                        solution.heroAccent === 'violet' ? 'text-accent-violet hover:text-accent-violet/80' :
-                        solution.heroAccent === 'teal' ? 'text-accent-teal hover:text-accent-teal/80' :
-                        'text-accent-amber hover:text-accent-amber/80'
-                      } border-2 ${
-                        solution.heroAccent === 'violet' ? 'border-accent-violet hover:bg-accent-violet hover:text-white' :
-                        solution.heroAccent === 'teal' ? 'border-accent-teal hover:bg-accent-teal hover:text-white' :
-                        'border-accent-amber hover:bg-accent-amber hover:text-white'
-                      }`}
+                      className={`group inline-flex items-center gap-3 px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:-translate-y-1 ${solution.heroAccent === 'violet' ? 'text-accent-violet hover:text-accent-violet/80' :
+                          solution.heroAccent === 'teal' ? 'text-accent-teal hover:text-accent-teal/80' :
+                            'text-accent-amber hover:text-accent-amber/80'
+                        } border-2 ${solution.heroAccent === 'violet' ? 'border-accent-violet hover:bg-accent-violet hover:text-white' :
+                          solution.heroAccent === 'teal' ? 'border-accent-teal hover:bg-accent-teal hover:text-white' :
+                            'border-accent-amber hover:bg-accent-amber hover:text-white'
+                        }`}
                     >
                       Learn More
                       <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />

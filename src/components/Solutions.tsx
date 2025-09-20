@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; 
 import { ArrowRight } from 'lucide-react';
 
 const Solutions: React.FC = () => {
@@ -12,7 +12,7 @@ const Solutions: React.FC = () => {
     {
       title: 'Digital Transformation',
       description: 'Complete digital overhaul of communication systems with integration across all business platforms.',
-      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: '/FullLogo_Acadia_1.jpg',
       features: ['Platform integration', 'Workflow automation', 'Change management']
     },
     {

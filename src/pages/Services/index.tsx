@@ -42,7 +42,7 @@ const ServicesIndex: React.FC = () => {
                 }`}
               >
                 {/* Image */}
-                <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                {/* <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
                   <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                     <img
                       src={`https://images.pexels.com/photos/${3184291 + (index % 3)}/pexels-photo-${3184291 + (index % 3)}.jpeg?auto=compress&cs=tinysrgb&w=800`}
@@ -51,7 +51,14 @@ const ServicesIndex: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-brand/20" />
                   </div>
-                </div>
+                </div> */}
+                 <div>
+                <img
+                  src={service.image}   // <-- reference the image field you define
+                  alt={`${service.title} capabilities`}
+                  className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                />
+              </div>
                 
                 {/* Content */}
                 <div className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>

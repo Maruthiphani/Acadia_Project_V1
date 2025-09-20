@@ -70,13 +70,13 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
                 <Mail size={20} className="text-accent-teal mt-0.5" />
                 <div>
                   <p className="text-brand-light">info@acadiaconsultants.com</p>
-                  <p className="text-brand-light">support@acadiaconsultants.com</p>
+                  {/* <p className="text-brand-light">support@acadiaconsultants.com</p> */}
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Phone size={20} className="text-accent-teal mt-0.5" />
                 <div>
-                  <p className="text-brand-light">+1 (123) 456-7890</p>
+                  {/* <p className="text-brand-light">+1 (123) 456-7890</p> */}
                   <p className="text-brand-light">+1 (984) 209-3969</p>
                   <p className="text-brand-light">24/7 Support Available</p>
                 </div>

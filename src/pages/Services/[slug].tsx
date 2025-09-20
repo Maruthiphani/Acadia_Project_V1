@@ -75,11 +75,18 @@ const ServiceDetail: React.FC = () => {
                   {service.capabilitiesText}
                 </p>
               </div>
-              
+
               {/* Image */}
-              <div>
+              {/* <div>
                 <img
                   src={`https://images.pexels.com/photos/${3184291 + (services.findIndex(s => s.slug === service.slug) % 3)}/pexels-photo-${3184291 + (services.findIndex(s => s.slug === service.slug) % 3)}.jpeg?auto=compress&cs=tinysrgb&w=800`}
+                  alt={`${service.title} capabilities`}
+                  className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                />
+              </div> */}
+              <div>
+                <img
+                  src={service.image}   // <-- reference the image field you define
                   alt={`${service.title} capabilities`}
                   className="w-full h-80 object-cover rounded-2xl shadow-lg"
                 />

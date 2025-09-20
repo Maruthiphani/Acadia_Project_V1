@@ -40,11 +40,10 @@ const SolutionDetail: React.FC = () => {
       </section>
 
       {/* Hero Section */}
-      <section className={`py-20 ${
-        solution.heroAccent === 'violet' ? 'bg-gradient-to-br from-accent-violet/10 to-accent-violet/5' :
-        solution.heroAccent === 'teal' ? 'bg-gradient-to-br from-accent-teal/10 to-accent-teal/5' :
-        'bg-gradient-to-br from-accent-amber/10 to-accent-amber/5'
-      }`}>
+      <section className={`py-20 ${solution.heroAccent === 'violet' ? 'bg-gradient-to-br from-accent-violet/10 to-accent-violet/5' :
+          solution.heroAccent === 'teal' ? 'bg-gradient-to-br from-accent-teal/10 to-accent-teal/5' :
+            'bg-gradient-to-br from-accent-amber/10 to-accent-amber/5'
+        }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <Badge variant={solution.heroAccent} size="lg" className="mb-6">
@@ -74,15 +73,23 @@ const SolutionDetail: React.FC = () => {
                   {solution.capabilitiesText}
                 </p>
               </div>
-              
+
               {/* Image */}
-              <div>
+              {/* <div>
                 <img
                   src={`https://images.pexels.com/photos/${3184338 + (solutions.findIndex(s => s.slug === solution.slug) % 3)}/pexels-photo-${3184338 + (solutions.findIndex(s => s.slug === solution.slug) % 3)}.jpeg?auto=compress&cs=tinysrgb&w=800`}
                   alt={`${solution.title} capabilities`}
                   className="w-full h-80 object-cover rounded-2xl shadow-lg"
                 />
+              </div> */}
+              <div>
+                <img
+                  src={solution.image}   // <-- reference the image field you define
+                  alt={`${solution.title} capabilities`}
+                  className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                />
               </div>
+
             </div>
           )}
         </div>
@@ -142,28 +149,26 @@ const SolutionDetail: React.FC = () => {
                 Ready to Get Started?
               </h2>
               <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                Let's discuss how {solution.title.toLowerCase()} can transform your organization. 
+                Let's discuss how {solution.title.toLowerCase()} can transform your organization.
                 Our experts are ready to create a customized solution for your specific needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/contact"
-                  className={`inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:-translate-y-1 ${
-                    solution.heroAccent === 'violet' ? 'bg-accent-violet hover:bg-accent-violet/90' :
-                    solution.heroAccent === 'teal' ? 'bg-accent-teal hover:bg-accent-teal/90' :
-                    'bg-accent-amber hover:bg-accent-amber/90'
-                  } text-white hover:shadow-xl`}
+                  className={`inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:-translate-y-1 ${solution.heroAccent === 'violet' ? 'bg-accent-violet hover:bg-accent-violet/90' :
+                      solution.heroAccent === 'teal' ? 'bg-accent-teal hover:bg-accent-teal/90' :
+                        'bg-accent-amber hover:bg-accent-amber/90'
+                    } text-white hover:shadow-xl`}
                 >
                   Schedule Consultation
                   <ArrowRight size={20} />
                 </Link>
                 <Link
                   to="/contact"
-                  className={`inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold border-2 transition-all duration-300 ${
-                    solution.heroAccent === 'violet' ? 'border-accent-violet text-accent-violet hover:bg-accent-violet hover:text-white' :
-                    solution.heroAccent === 'teal' ? 'border-accent-teal text-accent-teal hover:bg-accent-teal hover:text-white' :
-                    'border-accent-amber text-accent-amber hover:bg-accent-amber hover:text-white'
-                  }`}
+                  className={`inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold border-2 transition-all duration-300 ${solution.heroAccent === 'violet' ? 'border-accent-violet text-accent-violet hover:bg-accent-violet hover:text-white' :
+                      solution.heroAccent === 'teal' ? 'border-accent-teal text-accent-teal hover:bg-accent-teal hover:text-white' :
+                        'border-accent-amber text-accent-amber hover:bg-accent-amber hover:text-white'
+                    }`}
                 >
                   Request Demo
                 </Link>

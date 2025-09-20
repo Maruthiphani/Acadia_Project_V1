@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-const Partners: React.FC = () => {
+const Partners: React.FC = () => { 
   const partners = [
     { name: 'Microsoft Teams', logoUrl: 'https://i.imgur.com/jJSI5RU.jpeg' },
     { name: 'Mitel', logoUrl: 'https://i.imgur.com/NkGngyj.jpeg' },

@@ -272,7 +272,7 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Who We Are */}
+      {/* Who We Are */} 
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
@@ -285,7 +285,7 @@ const About: React.FC = () => {
           </div>
           <div>
             <img
-              src="https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=800&q=80"
+              src="/About.jpeg"
               alt="Who We Are"
               className="rounded-2xl shadow-lg object-cover w-full h-72"
             />
