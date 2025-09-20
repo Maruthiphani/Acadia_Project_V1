@@ -10,6 +10,7 @@ import SolutionDetail from './pages/Solutions/[slug]';
 import PartnersPage from './pages/PartnersPage';
 import ResourcesPage from './pages/ResourcesPage';
 import ContactPage from './pages/ContactPage';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import Footer from './components/Footer';
 import { useScrollSpy } from './hooks/useScrollSpy';
 import ScrollToTop from './components/ScrollToTop';
@@ -140,6 +141,7 @@ function AppContent() {
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
       </main>
       <Footer setCurrentPage={handleFooterNavClick} />

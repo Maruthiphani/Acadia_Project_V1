@@ -99,7 +99,12 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
           </p>
           <div className="flex gap-6 text-sm">
             <a href="#" className="text-brand-light hover:text-white transition-colors duration-300">
-              Privacy Policy
+              <button
+                onClick={() => setCurrentPage('privacy')}
+                className="text-brand-light hover:text-white transition-colors duration-300"
+              >
+                Privacy Policy
+              </button>
             </a>
             <a href="#" className="text-brand-light hover:text-white transition-colors duration-300">
               Terms of Service
