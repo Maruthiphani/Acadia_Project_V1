@@ -62,11 +62,28 @@ const SolutionDetail: React.FC = () => {
 
       {/* Overview */}
       <section className="py-20 bg-white">
-        <div className="mx-auto px-6 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {solution.capabilitiesText && (
-            <p className="text-lg md:text-xl font-medium text-gray-600 leading-relaxed md:leading-loose">
-              {solution.capabilitiesText}
-            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              {/* Text Content */}
+              <div>
+                <h2 className="text-3xl font-bold font-heading text-gray-900 mb-6">
+                  Our Capabilities
+                </h2>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  {solution.capabilitiesText}
+                </p>
+              </div>
+              
+              {/* Image */}
+              <div>
+                <img
+                  src={`https://images.pexels.com/photos/${3184338 + (solutions.findIndex(s => s.slug === solution.slug) % 3)}/pexels-photo-${3184338 + (solutions.findIndex(s => s.slug === solution.slug) % 3)}.jpeg?auto=compress&cs=tinysrgb&w=800`}
+                  alt={`${solution.title} capabilities`}
+                  className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                />
+              </div>
+            </div>
           )}
         </div>
       </section>

@@ -63,11 +63,28 @@ const ServiceDetail: React.FC = () => {
 
       {/* Overview */}
       <section className="py-20 bg-white">
-        <div className="mx-auto px-6 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {service.capabilitiesText && (
-            <p className="text-lg md:text-xl font-medium text-gray-600 leading-relaxed md:leading-loose">
-              {service.capabilitiesText}
-            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              {/* Text Content */}
+              <div>
+                <h2 className="text-3xl font-bold font-heading text-gray-900 mb-6">
+                  Our Capabilities
+                </h2>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  {service.capabilitiesText}
+                </p>
+              </div>
+              
+              {/* Image */}
+              <div>
+                <img
+                  src={`https://images.pexels.com/photos/${3184291 + (services.findIndex(s => s.slug === service.slug) % 3)}/pexels-photo-${3184291 + (services.findIndex(s => s.slug === service.slug) % 3)}.jpeg?auto=compress&cs=tinysrgb&w=800`}
+                  alt={`${service.title} capabilities`}
+                  className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                />
+              </div>
+            </div>
           )}
         </div>
       </section>
