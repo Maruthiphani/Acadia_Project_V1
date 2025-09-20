@@ -1,5 +1,6 @@
-import React from 'react';
-import { Calendar, FileText, Download } from 'lucide-react';
+import React from 'react'; 
+// import { Calendar, FileText, Download } from 'lucide-react';
+import { Cpu, Building2, Ratio } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
@@ -7,7 +8,7 @@ const Resources: React.FC = () => {
   const resources = [
     {
       type: 'Technology',
-      icon: FileText,
+      icon: Cpu,
       title: 'The Future of Communication Technologies',
       excerpt: 'Discover how next-gen innovations like AI, 5G, and cloud are reshaping global communication systems.',
       date: 'March 15, 2025',
@@ -15,7 +16,7 @@ const Resources: React.FC = () => {
     },
     {
       type: 'Enterprise',
-      icon: Calendar,
+      icon: Building2,
       title: 'Empowering Enterprises with Smart Infrastructure',
       excerpt: 'Learn how modern enterprises are leveraging automation, analytics, and hybrid platforms to scale securely and efficiently.',
       date: 'March 10, 2025',
@@ -23,7 +24,7 @@ const Resources: React.FC = () => {
     },
     {
       type: 'Solutions',
-      icon: Download,
+      icon: Ratio,
       title: 'Transforming Challenges into Scalable Solutions',
       excerpt: 'Explore real-world strategies that turn complex communication challenges into streamlined, future-ready solutions.',
       date: 'March 5, 2025',
