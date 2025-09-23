@@ -82,7 +82,10 @@ const ServicesIndex: React.FC = () => {
         </section>
       </BackgroundWrapper>
     </div>
-  );
-};
+      );
+    )
+    };
 
 export default ServicesIndex;
+  )
+}
