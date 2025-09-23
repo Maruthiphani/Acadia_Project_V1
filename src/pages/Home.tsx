@@ -5,14 +5,12 @@ import Hero from '../components/Hero';
 import AboutPreview from '../components/AboutPreview';
 import Partners from '../components/Partners';
 import Resources from '../components/Resources';
-import ContactSection from '../components/ContactSection';
 import SectionHeader from '../components/SectionHeader';
-import Card from '../components/Card';
-import Badge from '../components/Badge';
-import TabsOrAccordion from '../components/TabsOrAccordion';
+import ServiceCard from '../components/ServiceCard';
+import SolutionCard from '../components/SolutionCard';
+import BackgroundWrapper from '../components/BackgroundWrapper';
 import { services } from '../data/services';
 import { solutions } from '../data/solutions';
-import { leadership } from '../data/leadership';
 
 const Home: React.FC = () => {
   // const leadershipTabs = leadership.map(member => ({
@@ -51,154 +49,80 @@ const Home: React.FC = () => {
       <Hero />
      
 
-      {/* Leadership Section */}
-      {/* <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            title="Leadership Team"
-            subtitle="Meet the experts leading our mission to transform enterprise communications"
-            accentColor="amber"
-          />
-
-          <div className="block md:hidden">
-            <TabsOrAccordion
-              items={leadershipTabs}
-              defaultActive="ceo"
-              variant="accordion"
-            />
-          </div>
-
-          <div className="hidden md:block">
-            <TabsOrAccordion
-              items={leadershipTabs}
-              defaultActive="ceo"
-              variant="tabs"
-            />
-          </div>
-        </div>
-      </section> */}
 
 
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            title="Services"
-            subtitle="Comprehensive communication services designed to transform how your organization operates"
-            accentColor="violet"
-          />
+      <BackgroundWrapper variant="section">
+        <section id="services" className="py-12 sm:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionHeader
+              title="Services"
+              subtitle="Comprehensive communication services designed to transform how your organization operates"
+              accentColor="violet"
+            />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {services.slice(0, 6).map((service, index) => (
-              <Card key={service.slug} accentColor={service.heroAccent}>
-                <div className="p-8">
-                  <div className="mb-6">
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 ${service.heroAccent === 'violet' ? 'bg-accent-violet/10' :
-                      service.heroAccent === 'teal' ? 'bg-accent-teal/10' :
-                        'bg-accent-amber/10'
-                      }`}>
-                      <div className={`w-8 h-8 ${service.heroAccent === 'violet' ? 'text-accent-violet' :
-                        service.heroAccent === 'teal' ? 'text-accent-teal' :
-                          'text-accent-amber'
-                        }`}>
-                        {/* Icon placeholder */}
-                        <div className="w-full h-full bg-current opacity-60 rounded" />
-                      </div>
-                    </div>
-                    <h3 className="text-xl font-bold font-heading text-gray-900 mb-3">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {service.summary}
-                    </p>
-                  </div>
-                  <Link
-                    to={`/services/${service.slug}`}
-                    className={`group inline-flex items-center gap-2 font-semibold transition-colors duration-300 ${service.heroAccent === 'violet' ? 'text-accent-violet hover:text-accent-violet/80' :
-                      service.heroAccent === 'teal' ? 'text-accent-teal hover:text-accent-teal/80' :
-                        'text-accent-amber hover:text-accent-amber/80'
-                      }`}
-                  >
-                    Learn More
-                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
-                  </Link>
-                </div>
-              </Card>
-            ))}
-          </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+              {services.slice(0, 6).map((service, index) => (
+                <ServiceCard
+                  key={service.slug}
+                  title={service.title}
+                  summary={service.summary}
+                  slug={service.slug}
+                  heroAccent={service.heroAccent}
+                  index={index}
+                />
+              ))}
+            </div>
 
-          <div className="text-center">
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-3 bg-gradient-brand text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-            >
-              View All Services
-              <ArrowRight size={20} />
-            </Link>
+            <div className="text-center">
+              <Link
+                to="/services"
+                className="inline-flex items-center gap-3 bg-gradient-brand text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              >
+                View All Services
+                <ArrowRight size={20} />
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </BackgroundWrapper>
 
       {/* Solutions Section */}
-      <section id="solutions" className="py-20 bg-brand-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            title="Solutions"
-            subtitle="Discover how our specialized solutions can address your unique communication challenges"
-            accentColor="teal"
-          />
+      <BackgroundWrapper variant="default">
+        <section id="solutions" className="py-12 sm:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionHeader
+              title="Solutions"
+              subtitle="Discover how our specialized solutions can address your unique communication challenges"
+              accentColor="teal"
+            />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {solutions.slice(0, 6).map((solution, index) => (
-              <Card key={solution.slug} accentColor={solution.heroAccent}>
-                <div className="p-8">
-                  <div className="mb-6">
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 ${solution.heroAccent === 'violet' ? 'bg-accent-violet/10' :
-                      solution.heroAccent === 'teal' ? 'bg-accent-teal/10' :
-                        'bg-accent-amber/10'
-                      }`}>
-                      <div className={`w-8 h-8 ${solution.heroAccent === 'violet' ? 'text-accent-violet' :
-                        solution.heroAccent === 'teal' ? 'text-accent-teal' :
-                          'text-accent-amber'
-                        }`}>
-                        {/* Icon placeholder */}
-                        <div className="w-full h-full bg-current opacity-60 rounded" />
-                      </div>
-                    </div>
-                    <h3 className="text-xl font-bold font-heading text-gray-900 mb-3">
-                      {solution.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {solution.summary}
-                    </p>
-                  </div>
-                  <Link
-                    to={`/solutions/${solution.slug}`}
-                    className={`group inline-flex items-center gap-2 font-semibold transition-colors duration-300 ${solution.heroAccent === 'violet' ? 'text-accent-violet hover:text-accent-violet/80' :
-                      solution.heroAccent === 'teal' ? 'text-accent-teal hover:text-accent-teal/80' :
-                        'text-accent-amber hover:text-accent-amber/80'
-                      }`}
-                  >
-                    Learn More
-                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
-                  </Link>
-                </div>
-              </Card>
-            ))}
-          </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+              {solutions.slice(0, 6).map((solution, index) => (
+                <SolutionCard
+                  key={solution.slug}
+                  title={solution.title}
+                  summary={solution.summary}
+                  slug={solution.slug}
+                  heroAccent={solution.heroAccent}
+                  index={index}
+                />
+              ))}
+            </div>
 
-          <div className="text-center">
-            <Link
-              to="/solutions"
-              className="inline-flex items-center gap-3 bg-gradient-brand text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-            >
-              View All Solutions
-              <ArrowRight size={20} />
-            </Link>
+            <div className="text-center">
+              <Link
+                to="/solutions"
+                className="inline-flex items-center gap-3 bg-gradient-brand text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              >
+                View All Solutions
+                <ArrowRight size={20} />
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </BackgroundWrapper>
 
       <section id="partners">
         <Partners />
@@ -209,19 +133,15 @@ const Home: React.FC = () => {
       <section id="about">
         <AboutPreview />
       </section>
-      {/* <section id="contact">
-        <ContactSection />
-      </section> */}
-      <div className="text-center">
+      <div className="text-center py-8 sm:py-12">
         <Link
           to="/contact"
-          className="inline-flex items-center gap-3 bg-gradient-brand text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          className="inline-flex items-center gap-3 bg-gradient-brand text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
         >
           Contact us
           <ArrowRight size={20} />
         </Link>
       </div>
-      <br/>
     </>
   );
 };

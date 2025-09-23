@@ -5,3 +5,66 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Theme-specific styles */
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Mobile responsive improvements */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Theme-specific background overlays */
+[data-theme="modern"] .bg-overlay {
+  position: relative;
+}
+
+[data-theme="modern"] .bg-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+[data-theme="modern"] .bg-overlay > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Creative theme animations */
+[data-theme="creative"] * {
+  transition: all 0.3s ease;
+}
+
+[data-theme="creative"] .animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
+  }
+}

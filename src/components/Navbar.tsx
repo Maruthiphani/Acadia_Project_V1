@@ -88,28 +88,28 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, onNavClick
 
         {/* LOGO AREA (always extreme left) */}
         <div
-          className="flex-shrink-0 cursor-pointer flex items-start pl-0 ml-0"
+          className="flex-shrink-0 cursor-pointer flex items-start pl-4 ml-0"
           onClick={() => handleNavClick('home')}
         >
           {/* Left Logo */}
           <img
             src="/FullLogo_Acadia.jpg"
             alt="Acadia Consultants Full Logo"
-            className="h-16 md:h-20 w-auto object-contain"
+            className="h-12 md:h-16 w-auto object-contain"
           />
 
           {/* Right Logo */}
           <img
             src="/FullLogo_Acadia_1.jpg"
             alt="Acadia Consultants Secondary Logo"
-            className="h-16 md:h-20 w-auto object-contain"
+            className="h-12 md:h-16 w-auto object-contain"
           />
         </div>
 
         <div className="flex-1">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-end">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-end pr-4">
             <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
+              <div className="ml-4 lg:ml-10 flex items-baseline space-x-4 lg:space-x-8">
                 {navItems.map((item) => (
                   <button
                     key={item.id}
@@ -118,7 +118,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, onNavClick
                     //   ? isHomePage && isScrolled ? 'text-brand-navy' : 'text-brand-light'
                     //   : `${getTextColor()} ${getHoverColor()}`
                     //   }`}
-                    className={`px-3 py-2 text-lg font-semibold transition-all duration-200 relative ${currentPage === item.id
+                    className={`px-2 lg:px-3 py-2 text-sm lg:text-lg font-semibold transition-all duration-200 relative ${currentPage === item.id
                       ? isHomePage && isScrolled ? 'text-brand-navy' : 'text-brand-light'
                       : `${getTextColor()} ${getHoverColor()}`
                     }`}
@@ -136,7 +136,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, onNavClick
           </div>
         </div>
 
-        <div className="md:hidden">
+        <div className="md:hidden pr-4">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={`inline-flex items-center justify-center p-2 rounded-md transition-colors duration-200 ${getTextColor()} ${getHoverColor()}`}
