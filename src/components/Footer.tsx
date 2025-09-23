@@ -27,7 +27,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <img src="/FullLogo.jpg" alt="Acadia Consultants" className="h-12 w-auto mb-6 brightness-0 invert" />
+            {/* <img src="/FullLogo.jpg" alt="Acadia Consultants" className="h-12 w-auto mb-6 brightness-0 invert" /> */}
             <p className="text-brand-light mb-6 leading-relaxed">
               Transforming enterprise communications with expert consulting and cutting-edge technology solutions. 
               We deliver user-experience-driven testing and solutions for leaders in enterprise communications.

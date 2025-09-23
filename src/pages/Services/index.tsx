@@ -12,7 +12,7 @@ const ServicesIndex: React.FC = () => {
       <section className="py-20 bg-gradient-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold font-heading text-white mb-6">
-            Our
+            
             <span className="block text-brand-light">Services</span>
           </h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto">
@@ -26,7 +26,7 @@ const ServicesIndex: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold font-heading text-brand-navy mb-6">
-              Complete Service Portfolio
+              Service Portfolio
             </h2>
             <p className="text-lg text-brand-slate max-w-3xl mx-auto">
               From strategy to implementation, we provide end-to-end solutions that deliver measurable results

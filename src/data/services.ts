@@ -19,7 +19,7 @@ export const services: Service[] = [
     icon: 'Settings',
     heroAccent: 'violet',
     description: 'Ensure optimal performance and reliability of your communication systems with our comprehensive managed services that provide proactive monitoring, maintenance, and support.',
-    capabilitiesText: 'Our Services Span the Full managed services Spectrum with all the solutions. We do Tier 1, Tier 2 and Tier 3 support. We provide Incident, Problem, Program, Change and Knowledge management along lifecycle engineering in maintaining the inventory and Risk & Vulnerability with upgrades. In addition, we provide support on Automation /Tools /AI Adoption.',
+    capabilitiesText: 'Services Span the Full managed services Spectrum with all the solutions. We do Tier 1, Tier 2 and Tier 3 support. We provide Incident, Problem, Program, Change and Knowledge management along lifecycle engineering in maintaining the inventory and Risk & Vulnerability with upgrades. In addition, we provide support on Automation /Tools /AI Adoption.',
     image: "/managed services.jpg"
   },
   {

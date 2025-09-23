@@ -223,15 +223,15 @@ const ResourcesPage: React.FC = () => {
           </div>
 
           {/* Download Button */}
-          <div className="text-center mt-12">
+          {/* <div className="text-center mt-12">
             <button
               onClick={() => setIsPopupOpen(true)}
               className="inline-flex items-center gap-2 bg-gradient-brand text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
-              {/* <Download size={20} /> */}
+             
               Download Resources
             </button>
-          </div>
+          </div> */}
         </div>
       </section>
 

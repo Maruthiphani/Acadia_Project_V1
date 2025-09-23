@@ -84,7 +84,7 @@ const Home: React.FC = () => {
       <section id="services" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            title="Our Services"
+            title="Services"
             subtitle="Comprehensive communication services designed to transform how your organization operates"
             accentColor="violet"
           />
@@ -144,7 +144,7 @@ const Home: React.FC = () => {
       <section id="solutions" className="py-20 bg-brand-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            title="Our Solutions"
+            title="Solutions"
             subtitle="Discover how our specialized solutions can address your unique communication challenges"
             accentColor="teal"
           />
