@@ -89,7 +89,7 @@ const Home: React.FC = () => {
       </BackgroundWrapper>
 
       {/* Solutions Section */}
-      <BackgroundWrapper variant="default">
+      <BackgroundWrapper variant="section">
         <section id="solutions" className="py-12 sm:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <SectionHeader
@@ -124,15 +124,24 @@ const Home: React.FC = () => {
         </section>
       </BackgroundWrapper>
 
-      <section id="partners">
-        <Partners />
-      </section>
-      <section id="resources">
-        <Resources />
-      </section>
-      <section id="about">
-        <AboutPreview />
-      </section>
+      <BackgroundWrapper variant="section">
+        <section id="partners">
+          <Partners />
+        </section>
+      </BackgroundWrapper>
+      
+      <BackgroundWrapper variant="default">
+        <section id="resources">
+          <Resources />
+        </section>
+      </BackgroundWrapper>
+      
+      <BackgroundWrapper variant="section">
+        <section id="about">
+          <AboutPreview />
+        </section>
+      </BackgroundWrapper>
+      
       <div className="text-center py-8 sm:py-12">
         <Link
           to="/contact"

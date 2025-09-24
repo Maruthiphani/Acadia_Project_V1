@@ -33,13 +33,13 @@ const Resources: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-brand-bg">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-brand-navy mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-6">
             Latest Resources & Insights
           </h2>
-          <p className="text-lg text-brand-slate max-w-3xl mx-auto">
+          <p className="text-lg text-white/90 max-w-3xl mx-auto">
             Stay informed with our latest insights, case studies, and best practices in enterprise communications
           </p>
         </div>

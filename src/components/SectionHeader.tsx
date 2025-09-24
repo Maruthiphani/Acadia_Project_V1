@@ -21,12 +21,12 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
 
   return (
     <div className={`mb-16 ${centered ? 'text-center' : ''}`}>
-      <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900 mb-4">
+      <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-4">
         {title}
       </h2>
       <div className={`w-20 h-1 ${accentClasses[accentColor]} ${centered ? 'mx-auto' : ''} mb-6`} />
       {subtitle && (
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-lg text-white/90 max-w-3xl mx-auto leading-relaxed">
           {subtitle}
         </p>
       )}

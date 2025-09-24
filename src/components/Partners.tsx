@@ -16,13 +16,13 @@ const Partners: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-brand-navy mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-6">
             Trusted by Industry Leaders
           </h2>
-          <p className="text-lg text-brand-slate max-w-3xl mx-auto">
+          <p className="text-lg text-white/90 max-w-3xl mx-auto">
             We partner with the world's leading communication technology providers to deliver the best solutions
           </p>
         </div>
