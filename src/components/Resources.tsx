@@ -12,7 +12,7 @@ const Resources: React.FC = () => {
       title: 'The Future of Communication Technologies',
       excerpt: 'Discover how next-gen innovations like AI, 5G, and cloud are reshaping global communication systems.',
       date: 'March 15, 2025',
-      readTime: '5 min read'
+      readTime: ''
     },
     {
       type: 'Enterprise',
@@ -20,7 +20,7 @@ const Resources: React.FC = () => {
       title: 'Empowering Enterprises with Smart Infrastructure',
       excerpt: 'Learn how modern enterprises are leveraging automation, analytics, and hybrid platforms to scale securely and efficiently.',
       date: 'March 10, 2025',
-      readTime: '8 min read'
+      readTime: ''
     },
     {
       type: 'Solutions',
@@ -28,7 +28,7 @@ const Resources: React.FC = () => {
       title: 'Transforming Challenges into Scalable Solutions',
       excerpt: 'Explore real-world strategies that turn complex communication challenges into streamlined, future-ready solutions.',
       date: 'March 5, 2025',
-      readTime: '12 min read'
+      readTime: ''
     }
   ];
 

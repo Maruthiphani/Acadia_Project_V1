@@ -20,8 +20,9 @@ export const useTheme = () => {
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(() => {
     const saved = localStorage.getItem('acadia-theme');
-    return (saved as Theme) || 'modern';
+    return (saved as Theme) || 'modern'; // 👈 default is modern
   });
+  
 
   useEffect(() => {
     localStorage.setItem('acadia-theme', theme);
