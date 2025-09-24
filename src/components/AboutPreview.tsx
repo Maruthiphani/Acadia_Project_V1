@@ -141,25 +141,25 @@ const AboutPreview: React.FC = () => {
     id: member.id,
     label: member.name,
     content: (
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-1">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+        <div className="lg:col-span-2">
           <img
             src={member.image}
             alt={member.name}
-            className="w-full max-w-sm mx-auto rounded-2xl shadow-lg"
+            className="w-full max-w-xs mx-auto lg:mx-0 rounded-2xl shadow-lg object-cover h-64"
           />
         </div>
-        <div className="lg:col-span-2">
-          <h3 className="text-2xl font-bold font-heading text-gray-900 mb-2">
+        <div className="lg:col-span-3">
+          <h3 className="text-xl font-bold font-heading text-gray-900 mb-2">
             {member.name}
           </h3>
-          <Badge variant="violet" className="mb-6">
+          <p className="text-brand-sky font-semibold mb-4 text-lg">
             {member.role}
-          </Badge>
-          <div className="prose prose-lg text-gray-600 leading-relaxed">
+          </p>
+          <div className="text-gray-700 leading-relaxed space-y-4">
             {member.bio.split('\n').map((paragraph, index) => (
-              <p key={index} className="mb-4">
-                {paragraph}
+              <p key={index} className="text-sm leading-relaxed">
+                {paragraph.trim()}
               </p>
             ))}
           </div>
@@ -262,11 +262,11 @@ const AboutPreview: React.FC = () => {
           />
 
           <div className="block md:hidden">
-            <TabsOrAccordion items={leadershipTabs} defaultActive="ceo" variant="accordion" />
+            <TabsOrAccordion items={leadershipTabs} defaultActive="ceo" variant="accordion" cardStyle={true} />
           </div>
 
           <div className="hidden md:block">
-            <TabsOrAccordion items={leadershipTabs} defaultActive="ceo" variant="tabs" />
+            <TabsOrAccordion items={leadershipTabs} defaultActive="ceo" variant="tabs" cardStyle={true} />
           </div>
         </div>
 

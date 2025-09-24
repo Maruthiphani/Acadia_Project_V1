@@ -12,7 +12,11 @@ export const leadership: TeamMember[] = [
     name: 'Sreeram Bandakavi',
     role: 'CEO & Founder',
     image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400',
-    bio: `Sreeram Bandakavi is a visionary global technical leader with over 20+ years of experience in IT/ Network Operations, IP/VoIP /SP Network Planning, Design, Implementation, Operations, Optimization, and Managed Services roles and leading global cross functional teams. He has proven history of delivering high quality projects, constantly improving service offerings and driving the adoption of new services. Sreeram held several technical leadership roles at Ciena, Cisco, and Sprint (Now T-Mobile) in several verticals: Service Delivery, and Service Assurance, Product Development, Design and Architecture, Consulting, Pre-Sales support, Field Support, running Global NOC. Sreeram has a bachelor's degree in Electronics Engineering and a Master's in Business Administration. He achieved CCIE Emeritus for Life after being an active CCIE for over a decade. He also held several other certifications including CCNP, and MCSE.`
+    bio: `Sreeram Bandakavi is a visionary global technical leader with over 20+ years of experience in IT/Network Operations, IP/VoIP/SP Network Planning, Design, Implementation, Operations, Optimization, and Managed Services roles and leading global cross functional teams.
+
+He has proven history of delivering high quality projects, constantly improving service offerings and driving the adoption of new services. Sreeram held several technical leadership roles at Ciena, Cisco, and Sprint (Now T-Mobile) in several verticals: Service Delivery, and Service Assurance, Product Development, Design and Architecture, Consulting, Pre-Sales support, Field Support, running Global NOC.
+
+Sreeram has a bachelor's degree in Electronics Engineering and a Master's in Business Administration. He achieved CCIE Emeritus for Life after being an active CCIE for over a decade. He also held several other certifications including CCNP, and MCSE.`
   },
   // {
   //   id: 'cto',

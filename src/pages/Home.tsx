@@ -142,15 +142,17 @@ const Home: React.FC = () => {
         </section>
       </BackgroundWrapper>
       
-      <div className="text-center py-8 sm:py-12">
-        <Link
-          to="/contact"
-          className="inline-flex items-center gap-3 bg-gradient-brand text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-        >
-          Contact us
-          <ArrowRight size={20} />
-        </Link>
-      </div>
+      <BackgroundWrapper variant="default">
+        <div className="text-center py-8 sm:py-12">
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-3 bg-gradient-brand text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          >
+            Contact us
+            <ArrowRight size={20} />
+          </Link>
+        </div>
+      </BackgroundWrapper>
     </>
   );
 };
