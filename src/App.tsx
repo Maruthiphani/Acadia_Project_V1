@@ -12,7 +12,7 @@ import ResourcesPage from './pages/ResourcesPage';
 import ContactPage from './pages/ContactPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Footer from './components/Footer';
-import ThemeSelector from './components/ThemeSelector';
+// import ThemeSelector from './components/ThemeSelector';
 import { useScrollSpy } from './hooks/useScrollSpy';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -126,7 +126,7 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-brand-bg">
-      <ThemeSelector />
+      {/* <ThemeSelector /> */}
       <Navbar
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
