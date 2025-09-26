@@ -16,7 +16,7 @@ const BackgroundWrapper: React.FC<BackgroundWrapperProps> = ({
 
   const getBackgroundClass = () => {
     if (theme === 'default') {
-      return variant === 'hero' ? 'bg-gradient-hero' : 
+      return variant === 'hero' ? "bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center bg-fixed" : 
              variant === 'section' ? 'bg-brand-bg' : 'bg-white';
     }
 
@@ -42,7 +42,7 @@ const BackgroundWrapper: React.FC<BackgroundWrapperProps> = ({
   };
 
   const getOverlayClass = () => {
-    if ((theme === 'modern' || theme === 'creative') && variant !== 'default') {
+    if (variant === 'hero' || ((theme === 'modern' || theme === 'creative') && variant !== 'default')) {
       return 'relative before:absolute before:inset-0 before:bg-black/30 before:z-0';
     }
     return '';

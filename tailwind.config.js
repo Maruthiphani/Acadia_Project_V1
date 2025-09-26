@@ -23,7 +23,6 @@ export default {
       },
       backgroundImage: {
         'gradient-brand': 'linear-gradient(90deg, #46B3FF, #7C3AED)',
-        'gradient-hero': 'linear-gradient(180deg, rgba(11,42,74,0.85), rgba(11,42,74,0.65))',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
