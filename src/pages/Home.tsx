@@ -117,7 +117,7 @@ const Home: React.FC = () => {
                 className="inline-flex items-center gap-3 bg-gradient-brand text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 View All Solutions
-                <ArrowRight size={20} />
+                <ArrowRight size={20} /> 
               </Link>
             </div>
           </div>
@@ -136,11 +136,11 @@ const Home: React.FC = () => {
         </section>
       </BackgroundWrapper>
       
-      <BackgroundWrapper variant="section">
+      {/* <BackgroundWrapper variant="section"> */}
         <section id="about">
           <AboutPreview />
         </section>
-      </BackgroundWrapper>
+      {/* </BackgroundWrapper> */}
       
       <BackgroundWrapper variant="default">
         <div className="text-center py-8 sm:py-12">

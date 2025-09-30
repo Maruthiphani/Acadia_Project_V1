@@ -173,10 +173,10 @@ const AboutPreview: React.FC = () => {
       {/* About Acadia */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-black mb-6">
             About Acadia Consultants: Your Voice & UCC Transformation Partner
           </h2>
-          <p className="text-lg text-white/90 leading-relaxed max-w-4xl mx-auto">
+          <p className="text-lg text-black/90 leading-relaxed max-w-4xl mx-auto">
             In today’s fast-moving business environment, communication demands more than just voice—it requires seamless, secure, and intelligent collaboration experiences across every channel. 
             At Acadia Consultants, we specialize in Voice, VoIP, and Unified Communications & Collaboration (UCC) transformation, helping enterprises modernize, optimize, and future-proof their communication ecosystems.
           </p>
@@ -254,7 +254,7 @@ const AboutPreview: React.FC = () => {
 
       {/* Leadership */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-b-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             title="Leadership Team"
             subtitle="Meet the experts leading our mission to transform enterprise communications"
