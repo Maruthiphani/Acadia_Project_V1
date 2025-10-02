@@ -254,7 +254,7 @@ const AboutPreview: React.FC = () => {
 
       {/* Leadership */}
       <section className="py-20">
-        <div className="max-b-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* <div className="max-b-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             title="Leadership Team"
             subtitle="Meet the experts leading our mission to transform enterprise communications"
@@ -268,7 +268,7 @@ const AboutPreview: React.FC = () => {
           <div className="hidden md:block">
             <TabsOrAccordion items={leadershipTabs} defaultActive="ceo" variant="tabs" cardStyle={true} />
           </div>
-        </div>
+        </div> */}
 
         {/* Button */}
         <div className="mt-12 text-center">

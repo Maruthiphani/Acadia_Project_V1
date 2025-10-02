@@ -249,7 +249,7 @@ const About: React.FC = () => {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold font-heading text-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold font-heading text-black mb-6">
             The Enterprise Communications
             <span className="block text-brand-light">Center of Excellence</span>
           </h1>
@@ -374,7 +374,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Leadership Section */}
-      <section className="py-20 bg-brand-bg">
+      {/* <section className="py-20 bg-brand-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             title="Leadership Team"
@@ -392,7 +392,7 @@ const About: React.FC = () => {
         </div>
 
         
-      </section>
+      </section> */}
     </div>
   );
 };

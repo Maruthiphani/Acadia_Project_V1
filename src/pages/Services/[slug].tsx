@@ -68,9 +68,9 @@ const ServiceDetail: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               {/* Text Content */}
               <div>
-                <h2 className="text-3xl font-bold font-heading text-gray-900 mb-6">
-                  Our Capabilities
-                </h2>
+                {/* <h2 className="text-3xl font-bold font-heading text-gray-900 mb-6">
+                  Our CapabilitiesT
+                </h2> */}
                 <p className="text-lg text-gray-600 leading-relaxed">
                   {service.capabilitiesText}
                 </p>

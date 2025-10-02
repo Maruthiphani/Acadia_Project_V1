@@ -1,5 +1,5 @@
 export interface Solution {
-  slug: string;
+  slug: string; 
   title: string;
   summary: string;
   icon: string;
