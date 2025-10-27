@@ -201,38 +201,30 @@
 
 // export default Resources;
 
-import React from 'react'; 
-import { Cpu, Building2, Ratio } from 'lucide-react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight } from 'lucide-react';
+import * as Icons from 'lucide-react';
+import { resources as allResources } from '../data/resources';
 
 const Resources: React.FC = () => {
-  const resources = [
-    {
-      type: 'Technology',
-      icon: Cpu,
-      title: 'The Future of Communication Technologies',
-      excerpt: 'Discover how next-gen innovations like AI, 5G, and cloud are reshaping global communication systems.',
+  const resources = allResources
+    .filter((r) => [
+      'future-of-communication',
+      'empowering-enterprises',
+      'scalable-solutions',
+      'uccaas-migration',
+      'modern-sbc-cloud',
+      'secure-uc-edge'
+    ].includes(r.slug))
+    .map((r) => ({
+      type: r.type,
+      icon: Icons[r.icon as keyof typeof Icons] as React.ComponentType<{ size?: number; className?: string }>,
+      title: r.title,
+      excerpt: r.excerpt,
       date: '',
-      slug: 'future-of-communication',
-    },
-    {
-      type: 'Enterprise',
-      icon: Building2,
-      title: 'Empowering Enterprises with Smart Infrastructure',
-      excerpt: 'Learn how modern enterprises are leveraging automation, analytics, and hybrid platforms to scale securely and efficiently.',
-      date: '',
-      slug: 'empowering-enterprises',
-    },
-    {
-      type: 'Solutions',
-      icon: Ratio,
-      title: 'Transforming Challenges into Scalable Solutions',
-      excerpt: 'Explore real-world strategies that turn complex communication challenges into streamlined, future-ready solutions.',
-      date: '',
-      slug: 'scalable-solutions',
-    },
-  ];
+      slug: r.slug,
+    }));
 
   return (
     <section className="py-20">
@@ -248,7 +240,7 @@ const Resources: React.FC = () => {
         </div>
 
         {/* Resource Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {resources.map((resource, index) => (
             <article
               key={resource.title}
