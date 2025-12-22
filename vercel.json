@@ -2,6 +2,21 @@
   "redirects": [
     { "source": "/about", "destination": "/", "permanent": false }
   ],
+   "redirects": [
+    { "source": "/services", "destination": "/", "permanent": false }
+  ],
+    "redirects": [
+    { "source": "/solutions", "destination": "/", "permanent": false }
+  ],
+  "redirects": [
+    { "source": "/partners", "destination": "/", "permanent": false }
+  ],
+    "redirects": [
+    { "source": "/resources", "destination": "/", "permanent": false }
+  ],
+    "redirects": [
+    { "source": "/contact", "destination": "/", "permanent": false }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
   ]
