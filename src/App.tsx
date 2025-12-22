@@ -7,6 +7,7 @@ import ServicesIndex from './pages/Services/index';
 import ServiceDetail from './pages/Services/[slug]';
 import SolutionsIndex from './pages/Solutions/index';
 import SolutionDetail from './pages/Solutions/[slug]';
+import ResourceDetail from './pages/Resources/[slug]';
 import PartnersPage from './pages/PartnersPage';
 import ResourcesPage from './pages/ResourcesPage';
 import ContactPage from './pages/ContactPage';
@@ -142,8 +143,10 @@ function AppContent() {
           <Route path="/solutions/:slug" element={<SolutionDetail />} />
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
+          <Route path="/resources/:slug" element={<ResourceDetail />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
+
         </Routes>
       </main>
       <Footer setCurrentPage={handleFooterNavClick} />

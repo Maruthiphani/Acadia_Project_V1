@@ -1,379 +1,277 @@
 // import React from 'react';
-// import { FileText, Calendar, Download } from 'lucide-react';
+// import { Link } from 'react-router-dom';
+// import { ArrowRight, ChevronRight, FileText } from 'lucide-react';
+// import * as Icons from 'lucide-react';
+// import { resources as allResources } from '../data/resources';
 
-// const ResourcesPage: React.FC = () => {
-//   const resources = [
-//     {
-//       type: 'Blog',
-//       icon: FileText,
-//       title: 'The Future of Enterprise Communications',
-//       excerpt: 'Exploring trends and innovations shaping the next generation of business communications.',
-//       date: 'March 15, 2024',
-//       readTime: '5 min read',
-//     },
-//     {
-//       type: 'Case Study',
-//       icon: Calendar,
-//       title: 'Global Manufacturing Company Migration',
-//       excerpt: 'How we helped a Fortune 500 manufacturer migrate 10,000+ users to the cloud.',
-//       date: 'March 10, 2024',
-//       readTime: '8 min read',
-//     },
-//     {
-//       type: 'Whitepaper',
-//       icon: Download,
-//       title: 'Contact Center Optimization Guide',
-//       excerpt: 'Complete guide to modernizing and optimizing your contact center operations.',
-//       date: 'March 5, 2024',
-//       readTime: '12 min read',
-//     },
-//   ];
+
+
+// type LucideIconType = React.ComponentType<{ size?: number; className?: string }>;
+// type ResourceType = typeof allResources[number];
+
+// // Optional: feature/order specific slugs here (leave empty to show all merged items)
+// const FEATURED_SLUGS: string[] = [
+//   // 'uccaas-migration',
+//   // 'contact-center-automation',
+// ];
+
+// // 👇 Page-only extras (they’ll render here without editing data/resources)
+// const EXTRA_ITEMS: ResourceType[] = [
+//   {
+//     slug: 'contact-center-automation',
+//     title: 'Contact-center-automation',
+//     excerpt:
+//       'A guide to intelligent automation and AI-driven efficiency in customer experience.',
+//     type: 'Solutions',
+//     icon: 'Ratio',
+//     heroTitle: 'Contact Center & CX Transformation',
+//     intro: [
+//       'Modern CX strategies depend on automation and AI to enhance customer interactions and agent performance.'
+//     ],
+//     sections: [
+//       {
+//         heading: 'The Case for Intelligent Contact Centers',
+//         body: 'Automation reduces manual effort in call routing, ticketing, and analytics. Data-driven insights enable personalization and improve service quality at scale.'
+//       },
+//       {
+//         heading: 'Key Focus Areas',
+//         bullets: [
+//           'Omnichannel Engagement',
+//           'Automatically route and prioritize customer interactions across voice, chat, email, and social platforms.',
+//           'AI & Automation',
+//           'Deploy conversational AI to handle routine inquiries and accelerate issue resolution.',
+//           'Performance Monitoring & Analytics',
+//           'Gain real-time insights into productivity and service levels through automated dashboards.',
+//           'Quality Assurance & Compliance',
+//           'Automation ensures consistent adherence to quality and regulatory standards.'
+//         ]
+//       },
+//       {
+//         heading: 'The Vision Ahead',
+//         body: 'AI and analytics enable proactive, personalized CX by predicting customer needs and optimizing agent performance.'
+//       }
+//     ],
+//     // attachments: [] // optional
+//   },
+// ];
+
+// const Resources: React.FC = () => {
+//   const mergedList: ResourceType[] = React.useMemo(() => {
+//     const map = new Map<string, ResourceType>();
+//     for (const r of allResources) map.set(r.slug, r);
+//     for (const x of EXTRA_ITEMS) if (!map.has(x.slug)) map.set(x.slug, x);
+//     return Array.from(map.values());
+//   }, []);
+
+//   // 2) Apply optional curation/order via FEATURED_SLUGS
+//   const baseList = FEATURED_SLUGS.length
+//     ? FEATURED_SLUGS
+//         .map(slug => mergedList.find(r => r.slug === slug))
+//         .filter((r): r is NonNullable<typeof r> => Boolean(r))
+//     : mergedList;
+
+//   // 3) Prepare items for rendering
+//   const resources = baseList.map((r) => {
+//     const ResolvedIcon =
+//       (Icons[r.icon as keyof typeof Icons] as LucideIconType) ||
+//       (FileText as unknown as LucideIconType);
+
+//     return {
+//       type: r.type,
+//       Icon: ResolvedIcon,
+//       title: r.title,
+//       excerpt: r.excerpt || '',
+//       date: '', // add date if you later include it in your data
+//       slug: r.slug,
+//     };
+//   });
 
 //   return (
-//     <div className="pt-20">
-//       {/* Hero Section */}
-//       <section className="py-20 bg-gradient-hero">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-//           <h1 className="text-4xl md:text-6xl font-bold font-heading text-white mb-6">
-//             Resources & 
-//             <span className="block text-brand-light">Insights</span>
-//           </h1>
-//           <p className="text-xl text-white/90 max-w-3xl mx-auto">
-//             Stay informed with our latest insights, case studies, and best practices in enterprise communications and technology.
+//     <section className="py-20">
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//         {/* Section Header */}
+//         <div className="text-center mb-16">
+//           <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-6">
+//             Latest Resources & Insights
+//           </h2>
+//           <p className="text-lg text-white/90 max-w-3xl mx-auto">
+//             Stay informed with our latest insights, case studies, and best practices in enterprise
+//             communications
 //           </p>
 //         </div>
-//       </section>
 
-//       {/* Resources Grid */}
-//       <section className="py-20 bg-brand-bg">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <div className="text-center mb-16">
-//             <h2 className="text-3xl md:text-4xl font-bold font-heading text-brand-navy mb-6">
-//               Latest Resources & Insights
-//             </h2>
-//             <p className="text-lg text-brand-slate max-w-3xl mx-auto">
-//               Stay informed with our latest insights, case studies, and best practices in enterprise communications
-//             </p>
-//           </div>
-
-//           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-//             {resources.map((resource, index) => (
-//               <article
-//                 key={resource.title}
-//                 className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-//               >
-//                 <div className="p-8">
-//                   <div className="flex items-center gap-3 mb-4">
-//                     <div className="w-10 h-10 bg-gradient-brand rounded-xl flex items-center justify-center">
-//                       <resource.icon size={20} className="text-white" />
-//                     </div>
-//                     <span className="text-sm font-semibold text-brand-sky uppercase tracking-wide">
-//                       {resource.type}
-//                     </span>
+//         {/* Resource Grid */}
+//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+//           {resources.map(({ type, Icon, title, excerpt, date, slug }, index) => (
+//             <article
+//               key={slug}
+//               className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+//               style={{ animationDelay: `${index * 0.1}s` }}
+//             >
+//               <div className="p-8 flex flex-col h-full">
+//                 {/* Icon + Type */}
+//                 {/* <div className="flex items-center gap-3 mb-4">
+//                   <div className="w-10 h-10 bg-gradient-brand rounded-xl flex items-center justify-center">
+//                     <Icon size={20} className="text-white" />
 //                   </div>
+//                   <span className="text-sm font-semibold text-brand-sky uppercase tracking-wide">
+//                     {type}
+//                   </span>
+//                 </div> */}
 
-//                   <h3 className="text-xl font-bold font-heading text-brand-navy mb-4 group-hover:text-brand-sky transition-colors duration-300">
-//                     {resource.title}
-//                   </h3>
+//                 {/* Title */}
+//                 <h3 className="text-xl font-bold font-heading text-brand-navy mb-4 group-hover:text-brand-sky transition-colors duration-300">
+//                   {title}
+//                 </h3>
 
-//                   <p className="text-brand-slate mb-6 leading-relaxed">
-//                     {resource.excerpt}
-//                   </p>
+//                 {/* Excerpt */}
+//                 <p className="text-brand-slate mb-6 leading-relaxed flex-1">{excerpt}</p>
 
-//                   <div className="flex items-center justify-between text-sm text-brand-slate">
-//                     <span>{resource.date}</span>
-//                     <span>{resource.readTime}</span>
-//                   </div>
+//                 {/* Date (optional) */}
+//                 <div className="flex items-center justify-between text-sm text-brand-slate mb-4">
+//                   <span>{date}</span>
 //                 </div>
-//               </article>
-//             ))}
-//           </div>
 
+//                 {/* Learn More button */}
+//                 <div className="mt-auto">
+//                   <Link
+//                     to={`/resources/${slug}`}
+//                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-white bg-accent-teal hover:bg-accent-teal/90 transition-all duration-300 transform hover:scale-105"
+//                   >
+//                     Learn More
+//                     <ChevronRight size={18} />
+//                   </Link>
+//                 </div>
+//               </div>
+//             </article>
+//           ))}
 //         </div>
-//       </section>
-//     </div>
+
+//         {/* View All Button */}
+//         {/* <div className="text-center mt-12">
+//           <Link
+//             to="/resources"
+//             className="inline-flex items-center gap-3 bg-gradient-brand text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+//           >
+//             View All Resources
+//             <ArrowRight size={20} />
+//           </Link>
+//         </div> */}
+//       </div>
+//     </section>
 //   );
 // };
 
-// export default ResourcesPage;
+// export default Resources;
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, FileText } from 'lucide-react';
 import * as Icons from 'lucide-react';
-import { resources as allResources } from '../data/resources';
+import { getAllResources } from '../data/registry';
+import type { resources as base } from '../data/resources';
 
-const ResourcesPage: React.FC = () => {
-  const resources = allResources
-    .filter((r) => [
-      'future-of-communication',
-      'empowering-enterprises',
-      'scalable-solutions',
-      'uccaas-migration',
-      'modern-sbc-cloud',
-      'secure-uc-edge'
-    ].includes(r.slug))
-    .map((r) => ({
+type LucideIconType = React.ComponentType<{ size?: number; className?: string }>;
+type ResourceType = typeof base[number];
+
+// Optional: feature/order specific slugs here (leave empty to show all merged items)
+const FEATURED_SLUGS: string[] = [
+  // 'uccaas-migration',
+  // 'contact-center-automation',
+];
+
+const Resources: React.FC = () => {
+  // pull the merged list (../data/resources + ../data/extra)
+  const mergedList: ResourceType[] = React.useMemo(() => getAllResources(), []);
+
+  // optional curation/order via FEATURED_SLUGS
+  const baseList = FEATURED_SLUGS.length
+    ? FEATURED_SLUGS
+        .map(slug => mergedList.find(r => r.slug === slug))
+        .filter((r): r is NonNullable<typeof r> => Boolean(r))
+    : mergedList;
+
+  // prepare items for rendering
+  const resources = baseList.map((r) => {
+    const ResolvedIcon =
+      (Icons[r.icon as keyof typeof Icons] as LucideIconType) ||
+      (FileText as unknown as LucideIconType);
+
+    return {
       type: r.type,
-      icon: Icons[r.icon as keyof typeof Icons] as React.ComponentType<{ size?: number; className?: string }>,
+      Icon: ResolvedIcon,
       title: r.title,
-      excerpt: r.excerpt,
-      date: '',
+      excerpt: r.excerpt || '',
+      date: '', // populate if you later add date in data
       slug: r.slug,
-    }));
-  
-    return (
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-6">
-              Latest Resources & Insights
-            </h2>
-            <p className="text-lg text-white/90 max-w-3xl mx-auto">
-              Stay informed with our latest insights, case studies, and best practices in enterprise communications
-            </p>
-          </div>
-  
-          {/* Resource Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {resources.map((resource, index) => (
-              <article
-                key={resource.title}
-                className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="p-8 flex flex-col h-full">
-                  {/* Icon + Type */}
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-gradient-brand rounded-xl flex items-center justify-center">
-                      <resource.icon size={20} className="text-white" />
-                    </div>
-                    <span className="text-sm font-semibold text-brand-sky uppercase tracking-wide">
-                      {resource.type}
-                    </span>
-                  </div>
-  
-                  {/* Title */}
-                  <h3 className="text-xl font-bold font-heading text-brand-navy mb-4 group-hover:text-brand-sky transition-colors duration-300">
-                    {resource.title}
-                  </h3>
-  
-                  {/* Excerpt */}
-                  <p className="text-brand-slate mb-6 leading-relaxed flex-1">
-                    {resource.excerpt}
-                  </p>
-  
-                  {/* Date */}
-                  <div className="flex items-center justify-between text-sm text-brand-slate mb-4">
-                    <span>{resource.date}</span>
-                  </div>
-  
-                  {/* Learn More button */}
-                  <div className="mt-auto">
-                    <Link
-                      to={`/resources/${resource.slug}`}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-white bg-accent-teal hover:bg-accent-teal/90 transition-all duration-300 transform hover:scale-105"
-                    >
-                      Learn More
-                      <ChevronRight size={18} />
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-  
-          {/* View All Button */}
-          {/* <div className="text-center mt-12">
-            <Link
-              to="/resources"
-              className="inline-flex items-center gap-3 bg-gradient-brand text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-            >
-              View All Resources 
-              <ArrowRight size={20} />
-            </Link>
-          </div> */}
+    };
+  });
+
+  return (
+    <section className="py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-6">
+            Latest Resources & Insights
+          </h2>
+          <p className="text-lg text-white/90 max-w-3xl mx-auto">
+            Stay informed with our latest insights, case studies, and best practices in enterprise
+            communications
+          </p>
         </div>
-      </section>
-    );
-  };
-  
-  export default ResourcesPage;
 
+        {/* Resource Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {resources.map(({ type, Icon, title, excerpt, date, slug }, index) => (
+            <article
+              key={slug}
+              className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="p-8 flex flex-col h-full">
+                {/* Title */}
+                <h3 className="text-xl font-bold font-heading text-brand-navy mb-4 group-hover:text-brand-sky transition-colors duration-300">
+                  {title}
+                </h3>
 
+                {/* Excerpt */}
+                <p className="text-brand-slate mb-6 leading-relaxed flex-1">{excerpt}</p>
 
-//    const resources = [
-//       {
-//         type: 'Technology',
-//         icon: Cpu,
-//         title: 'The Future of Communication Technologies',
-//         excerpt: 'Discover how next-gen innovations like AI, 5G, and cloud are reshaping global communication systems.',
-//         date: 'March 15, 2025',
-//         readTime: '5 min read'
-//       },
-//       {
-//         type: 'Enterprise',
-//         icon: Building2,
-//         title: 'Empowering Enterprises with Smart Infrastructure',
-//         excerpt: 'Learn how modern enterprises are leveraging automation, analytics, and hybrid platforms to scale securely and efficiently.',
-//         date: 'March 10, 2025',
-//         readTime: '8 min read'
-//       },
-//       {
-//         type: 'Solutions',
-//         icon: Ratio,
-//         title: 'Transforming Challenges into Scalable Solutions',
-//         excerpt: 'Explore real-world strategies that turn complex communication challenges into streamlined, future-ready solutions.',
-//         date: 'March 5, 2025',
-//         readTime: '12 min read'
-//       }
-//     ];
+                {/* Date (optional) */}
+                <div className="flex items-center justify-between text-sm text-brand-slate mb-4">
+                  <span>{date}</span>
+                </div>
 
-//   const toggleDoc = (docUrl: string) => {
-//     setSelectedDocs((prev) =>
-//       prev.includes(docUrl)
-//         ? prev.filter((d) => d !== docUrl)
-//         : [...prev, docUrl]
-//     );
-//   };
+                {/* Learn More button */}
+                <div className="mt-auto">
+                  <Link
+                    to={`/resources/${slug}`}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-white bg-accent-teal hover:bg-accent-teal/90 transition-all duration-300 transform hover:scale-105"
+                  >
+                    Learn More
+                    <ChevronRight size={18} />
+                  </Link>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
 
-//   const handleDownload = () => {
-//     selectedDocs.forEach((url) => {
-//       const link = document.createElement('a');
-//       link.href = url;
-//       link.download = url.split('/').pop() || 'document';
-//       document.body.appendChild(link);
-//       link.click();
-//       document.body.removeChild(link);
-//     });
-//     setIsPopupOpen(false);
-//     setSelectedDocs([]);
-//   };
+        {/* View All Button (optional)
+        <div className="text-center mt-12">
+          <Link
+            to="/resources"
+            className="inline-flex items-center gap-3 bg-gradient-brand text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          >
+            View All Resources
+            <ArrowRight size={20} />
+          </Link>
+        </div>
+        */}
+      </div>
+    </section>
+  );
+};
 
-//   return (
-//     <div className="pt-20">
-//       {/* Hero Section */}
-//       <section className="py-20 bg-gradient-hero">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-//           <h1 className="text-4xl md:text-6xl font-bold font-heading text-white mb-6">
-//             Resources & 
-//             <span className="block text-brand-light">Insights</span>
-//           </h1>
-//           <p className="text-xl text-white/90 max-w-3xl mx-auto">
-//             Stay informed with our latest insights, case studies, and best practices in enterprise communications and technology.
-//           </p>
-//         </div>
-//       </section>
-
-//       {/* Resources Grid */}
-//       <section className="py-20 bg-brand-bg">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <div className="text-center mb-16">
-//             <h2 className="text-3xl md:text-4xl font-bold font-heading text-brand-navy mb-6">
-//               Latest Resources & Insights
-//             </h2>
-//             <p className="text-lg text-brand-slate max-w-3xl mx-auto">
-//               Stay informed with our latest insights, case studies, and best practices in enterprise communications
-//             </p>
-//           </div>
-
-//           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-//             {resources.map((resource) => (
-//               <article
-//                 key={resource.title}
-//                 className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-//               >
-//                 <div className="p-8">
-//                   <div className="flex items-center gap-3 mb-4">
-//                     <div className="w-10 h-10 bg-gradient-brand rounded-xl flex items-center justify-center">
-//                       <resource.icon size={20} className="text-white" />
-//                     </div>
-//                     <span className="text-sm font-semibold text-brand-sky uppercase tracking-wide">
-//                       {resource.type}
-//                     </span>
-//                   </div>
-
-//                   <h3 className="text-xl font-bold font-heading text-brand-navy mb-4 group-hover:text-brand-sky transition-colors duration-300">
-//                     {resource.title}
-//                   </h3>
-
-//                   <p className="text-brand-slate mb-6 leading-relaxed">
-//                     {resource.excerpt}
-//                   </p>
-
-//                   <div className="flex items-center justify-between text-sm text-brand-slate">
-//                     <span>{resource.date}</span>
-//                     <span>{resource.readTime}</span>
-//                   </div>
-//                 </div>
-//               </article>
-//             ))}
-//           </div>
-
-//           {/* Download Button */}
-//           {/* <div className="text-center mt-12">
-//             <button
-//               onClick={() => setIsPopupOpen(true)}
-//               className="inline-flex items-center gap-2 bg-gradient-brand text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-//             >
-             
-//               Download Resources
-//             </button>
-//           </div> */}
-//         </div>
-//       </section>
-
-//       {/* Popup Modal */}
-//       {isPopupOpen && (
-//         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-//           <div className="bg-white rounded-2xl shadow-xl p-8 max-w-lg w-full">
-//             <h3 className="text-2xl font-bold text-brand-navy mb-6">
-//               Select Files to Download
-//             </h3>
-
-//             <div className="space-y-4 max-h-64 overflow-y-auto">
-//               {docs.map((doc) => (
-//                 <label
-//                   key={doc.url}
-//                   className="flex items-center gap-3 cursor-pointer"
-//                 >
-//                   <input
-//                     type="checkbox"
-//                     checked={selectedDocs.includes(doc.url)}
-//                     onChange={() => toggleDoc(doc.url)}
-//                     className="w-5 h-5 rounded-full text-brand-sky border-gray-300 focus:ring-brand-sky"
-//                   />
-//                   <span className="text-gray-700">{doc.name}</span>
-//                 </label>
-//               ))}
-//             </div>
-
-//             <div className="mt-8 flex justify-end gap-4">
-//               <button
-//                 onClick={() => setIsPopupOpen(false)}
-//                 className="px-5 py-2 rounded-full border border-gray-300 hover:bg-gray-100"
-//               >
-//                 Cancel
-//               </button>
-//               <button
-//                 onClick={handleDownload}
-//                 disabled={selectedDocs.length === 0}
-//                 className={`px-6 py-2 rounded-full font-semibold text-white ${
-//                   selectedDocs.length === 0
-//                     ? 'bg-gray-400 cursor-not-allowed'
-//                     : 'bg-gradient-brand hover:shadow-lg'
-//                 }`}
-//               >
-//                 Download Selected
-//               </button>
-//             </div>
-//           </div>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default ResourcesPage;
- 
+export default Resources;
