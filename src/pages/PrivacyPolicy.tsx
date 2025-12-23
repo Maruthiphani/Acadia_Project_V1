@@ -54,7 +54,7 @@ We do not sell, trade, or otherwise transfer your personal information to third 
       content: `If you have any questions about this Privacy Policy or our privacy practices, please contact us at:
 
 Email: info@acadiaconsultants.com
-Phone: +1 (984) 209-3969
+Phone: 1800 ACADIA
 Address: 4229 Lafayette Center Dr STE 1880, Chantilly, VA 20151
 
 We will respond to your inquiry within 30 days. If you are not satisfied with our response, you may have the right to lodge a complaint with the relevant data protection authority in your jurisdiction.`

@@ -1,12 +1,4 @@
 {
-  "redirects": [
-    { "source": "/about", "destination": "/", "permanent": false },
-    { "source": "/services", "destination": "/", "permanent": false },
-    { "source": "/solutions", "destination": "/", "permanent": false },
-    { "source": "/partners", "destination": "/", "permanent": false },
-    { "source": "/resources", "destination": "/", "permanent": false },
-    { "source": "/contact", "destination": "/", "permanent": false }
-  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
   ]
