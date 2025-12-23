@@ -139,17 +139,111 @@
 
 // export default SolutionCard;
 
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { X, ChevronRight } from 'lucide-react';
+// import React, { useState } from 'react';
+// import { Link } from 'react-router-dom';
+// import { X, ChevronRight } from 'lucide-react';
+
+// interface SolutionCardProps {
+//   title: string;
+//   summary: string;
+//   slug: string;
+//   heroAccent: 'violet' | 'teal' | 'amber';
+//   index: number;
+// }
+
+// const SolutionCard: React.FC<SolutionCardProps> = ({
+//   title,
+//   summary,
+//   slug,
+//   heroAccent,
+// }) => {
+//   const [isOpen, setIsOpen] = useState(false);
+
+//   // Accent classes for styling
+//   const accentColors = {
+//     violet: 'bg-accent-violet text-white hover:bg-accent-violet/90',
+//     teal: 'bg-accent-teal text-white hover:bg-accent-teal/90',
+//     amber: 'bg-accent-amber text-white hover:bg-accent-amber/90',
+//   };
+
+//   return (
+//     <>
+//       {/* Small Rectangle Card */}
+//       <div
+//         onClick={() => setIsOpen(true)}
+//         className={`cursor-pointer bg-white rounded-lg shadow-md border border-gray-200 p-6 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300`}
+//       >
+//         <h3 className="text-lg font-bold text-gray-900">{title}</h3>
+//       </div>
+
+//   {/* Popup Modal */}
+//       {isOpen && (
+//     <div
+//       className="fixed inset-0 z-[9999] flex items-center justify-center"
+//       role="dialog"
+//       aria-modal="true"
+//     >
+//     {/* Backdrop */}
+//     <div
+//       className="absolute inset-0 bg-black/60 backdrop-blur-sm z-[9999]"
+//       onClick={() => setIsOpen(false)}
+//     />
+
+//     {/* Modal */}
+//     <div className="relative z-[10000] w-full max-w-lg px-4">
+//       <div
+//         className="bg-white rounded-2xl shadow-2xl w-full p-8 relative pointer-events-auto"
+//         onClick={(e) => e.stopPropagation()}
+//       >
+//         {/* Close Button */}
+//         <button
+//           onClick={() => setIsOpen(false)}
+//           className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
+//         >
+//           <X size={24} />
+//         </button>
+
+//         {/* Content */}
+//         <h3 className="text-2xl font-bold text-gray-900 mb-4">{title}</h3>
+//         <p className="text-gray-700 mb-6">{summary}</p>
+
+//         {/* Learn More Button */}
+//         <Link
+//           to={`/solutions/${slug}`}
+//           className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${accentColors[heroAccent]}`}
+//           onClick={() => setIsOpen(false)}
+//         >
+//           Learn More
+//           <ChevronRight size={18} />
+//         </Link>
+//       </div>
+//     </div>
+//   </div>
+//   )}
+//   </>
+//   );
+// };
+
+// export default SolutionCard;
+
+import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import { Link } from "react-router-dom";
+import { X, ChevronRight } from "lucide-react";
 
 interface SolutionCardProps {
   title: string;
   summary: string;
   slug: string;
-  heroAccent: 'violet' | 'teal' | 'amber';
-  index: number;
+  heroAccent: "violet" | "teal" | "amber";
+  index: number; // keeping this since your props include it (even if unused)
 }
+
+const accentColors: Record<SolutionCardProps["heroAccent"], string> = {
+  violet: "bg-accent-violet text-white hover:bg-accent-violet/90",
+  teal: "bg-accent-teal text-white hover:bg-accent-teal/90",
+  amber: "bg-accent-amber text-white hover:bg-accent-amber/90",
+};
 
 const SolutionCard: React.FC<SolutionCardProps> = ({
   title,
@@ -158,58 +252,98 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
   heroAccent,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  // Accent classes for styling
-  const accentColors = {
-    violet: 'bg-accent-violet text-white hover:bg-accent-violet/90',
-    teal: 'bg-accent-teal text-white hover:bg-accent-teal/90',
-    amber: 'bg-accent-amber text-white hover:bg-accent-amber/90',
-  };
+  // Ensure document is available (SSR safety)
+  useEffect(() => setMounted(true), []);
+
+  // Lock body scroll while modal is open
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isOpen]);
+
+  // Close on ESC key
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen]);
+
+  const modal = isOpen ? (
+    <div
+      className="fixed inset-0 z-[999999] flex items-center justify-center"
+      role="dialog"
+      aria-modal="true"
+    >
+      {/* Backdrop */}
+      <button
+        type="button"
+        aria-label="Close modal"
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        onClick={() => setIsOpen(false)}
+      />
+
+      {/* Modal container */}
+      <div className="relative z-[1000000] w-full max-w-lg px-4 pointer-events-auto">
+        <div
+          className="bg-white rounded-2xl shadow-2xl w-full p-8 relative"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Close Button */}
+          <button
+            onClick={() => setIsOpen(false)}
+            className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
+            aria-label="Close"
+            type="button"
+          >
+            <X size={24} />
+          </button>
+
+          {/* Content */}
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">{title}</h3>
+          <p className="text-gray-700 mb-6">{summary}</p>
+
+          {/* Learn More Button */}
+          <Link
+            to={`/solutions/${slug}`}
+            className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${accentColors[heroAccent]}`}
+            onClick={() => setIsOpen(false)}
+          >
+            Learn More
+            <ChevronRight size={18} />
+          </Link>
+        </div>
+      </div>
+    </div>
+  ) : null;
 
   return (
     <>
       {/* Small Rectangle Card */}
       <div
         onClick={() => setIsOpen(true)}
-        className={`cursor-pointer bg-white rounded-lg shadow-md border border-gray-200 p-6 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300`}
+        className="cursor-pointer bg-white rounded-lg shadow-md border border-gray-200 p-6 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => e.key === "Enter" && setIsOpen(true)}
       >
         <h3 className="text-lg font-bold text-gray-900">{title}</h3>
       </div>
 
-      {/* Popup Modal */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
-          onClick={() => setIsOpen(false)} // close when clicking outside
-        >
-          <div
-            className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-8 relative"
-            onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
-            >
-              <X size={24} />
-            </button>
-
-            {/* Content */}
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">{title}</h3>
-            <p className="text-gray-700 mb-6">{summary}</p>
-
-            {/* Learn More Button */}
-            <Link
-              to={`/solutions/${slug}`}
-              className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${accentColors[heroAccent]}`}
-              onClick={() => setIsOpen(false)}
-            >
-              Learn More
-              <ChevronRight size={18} />
-            </Link>
-          </div>
-        </div>
-      )}
+      {/* Portal Modal */}
+      {mounted && createPortal(modal, document.body)}
     </>
   );
 };
